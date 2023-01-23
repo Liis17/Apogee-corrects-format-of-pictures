@@ -72,7 +72,7 @@ namespace Apogee_corrects_format_of_pictures
 
         private void TimerFinish(object? sender, EventArgs e)
         {
-            //Screenshoter.CaptureMyScreen();
+            Screenshoter.CaptureMyScreen();
             LoadPic();
         }
 
