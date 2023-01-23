@@ -14,8 +14,9 @@ namespace Apogee_corrects_format_of_pictures
             Application.Current.Dispatcher.Invoke(() =>
             {
                 MainWindow.button1.Visibility = Visibility.Hidden;
-                MainWindow.mainWindowName.MinHeight = 1080;
-                MainWindow.mainWindowName.MinWidth = 1920;
+                MainWindow.mainWindowName.Height = 1080;
+                MainWindow.mainWindowName.Width = 1920;
+                MainWindow.mainWindowName.WindowState = WindowState.Maximized;
                 MainWindow.winFrame.Visibility = Visibility.Visible;
                 MainWindow.winFrame.Navigate(new Viewer());
             });

@@ -30,9 +30,10 @@ namespace Apogee_corrects_format_of_pictures
                 FileInfo[] files = directory.GetFiles();
                 foreach (FileInfo file in files)
                 {
+                    if (file.FullName.Contains(".mp4") || file.FullName.Contains(".gif") || file.FullName.Contains(".webm")) continue;
                     ImageList.ApogeeImages.Add(file.FullName);
                 }
-
+                WinForms.MessageBox.Show(ImageList.ApogeeImages.Count + ""); ;
                 ViewerWork.ClearUI();
             }
             else

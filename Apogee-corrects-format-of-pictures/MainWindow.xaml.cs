@@ -37,5 +37,15 @@ namespace Apogee_corrects_format_of_pictures
         {
             SearchFiles.SearchFilesMethod();
         }
+
+        private void MouseLeave(object sender, MouseEventArgs e)
+        {
+            maintitlebar.Visibility= Visibility.Hidden;
+        }
+
+        private void MouseEnter(object sender, MouseEventArgs e)
+        {
+            maintitlebar.Visibility = Visibility.Visible;
+        }
     }
 }

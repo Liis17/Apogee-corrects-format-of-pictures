@@ -12,7 +12,6 @@
         ResizeMode="CanMinimize"
         WindowCornerPreference="Round"
         WindowBackdropType="Mica"
-        
         WindowStyle="SingleBorderWindow"
         mc:Ignorable="d"
              
@@ -21,12 +20,14 @@
     <Grid>
         <ui:TitleBar
             x:Name="maintitlebar"
+            MouseLeave="MouseLeave"
             Title=""
             Grid.Row="0" 
             UseSnapLayout="True"
             Height="31" 
             Foreground="White" 
             ButtonsForeground="White" Panel.ZIndex="80"/>
+        <Grid MouseEnter="MouseEnter" Panel.ZIndex="79" Height="31" VerticalAlignment="Top" Background="#00000000"/>
 
         <ui:Button x:Name="Button1" Content="Выбрать папку" Height="29" Width="190" HorizontalAlignment="Center" FontFamily="Arial Black" Click="Button_Click"/>
         <Frame Margin="0 0 0 0" x:Name="WinFrame" Visibility="Hidden"></Frame>
