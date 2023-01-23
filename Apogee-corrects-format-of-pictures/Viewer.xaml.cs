@@ -65,7 +65,7 @@ namespace Apogee_corrects_format_of_pictures
         }
         public void StartSaveTimer()
         {
-            timemachine.Interval = TimeSpan.FromMilliseconds(300);
+            timemachine.Interval = TimeSpan.FromMilliseconds(500);
             timemachine.Tick += TimerFinish;
             timemachine.Start();
         }
