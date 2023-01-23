@@ -25,12 +25,14 @@ namespace Apogee_corrects_format_of_pictures
         public static System.Windows.Controls.Button? button1;
         public static Frame? winFrame;
         public static UiWindow? mainWindowName;
+        public static TextBlock? loadText;
         public MainWindow()
         {
             InitializeComponent();
             button1 = Button1;
             winFrame = WinFrame;
             mainWindowName = MainWindowName;
+            loadText = LoadText;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

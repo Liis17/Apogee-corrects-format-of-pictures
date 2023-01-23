@@ -16,6 +16,7 @@ namespace Apogee_corrects_format_of_pictures
                 MainWindow.button1.Visibility = Visibility.Hidden;
                 MainWindow.mainWindowName.WindowState = WindowState.Maximized;
                 MainWindow.winFrame.Visibility = Visibility.Visible;
+                MainWindow.loadText.Visibility = Visibility.Hidden;
                 MainWindow.winFrame.Navigate(new Viewer());
             });
         }

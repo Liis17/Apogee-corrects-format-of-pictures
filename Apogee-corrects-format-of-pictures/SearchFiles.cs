@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
+using System.Windows;
 
 using Wpf.Ui.Controls;
 
@@ -20,12 +21,26 @@ namespace Apogee_corrects_format_of_pictures
         public static void SearchFilesMethod()
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
+            System.Windows.Application.Current.Dispatcher.Invoke(() =>
+            {
+                MainWindow.button1.Visibility = Visibility.Hidden;
+                MainWindow.loadText.Visibility = Visibility.Visible;
+            });
             fbd.ShowDialog();
             FolderView(fbd.SelectedPath);
         }
 
         public static void FolderView(string path)
         {
+            if(path == "") 
+            {
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                {
+                    MainWindow.button1.Visibility = Visibility.Visible;
+                    MainWindow.loadText.Visibility = Visibility.Hidden;
+                });
+                return; 
+            }
             var directory = new DirectoryInfo(path);
             if (directory.Exists)
             {
@@ -42,7 +57,6 @@ namespace Apogee_corrects_format_of_pictures
 
                     ImageList.RamImages.Add(bi3);
                 }
-                WinForms.MessageBox.Show(ImageList.RamImages.Count + "");
                 ViewerWork.ClearUI();
 
             }

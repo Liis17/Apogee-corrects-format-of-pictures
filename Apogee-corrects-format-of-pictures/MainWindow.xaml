@@ -31,5 +31,6 @@
 
         <ui:Button x:Name="Button1" Content="Выбрать папку" Height="29" Width="190" HorizontalAlignment="Center" FontFamily="Arial Black" Click="Button_Click"/>
         <Frame Margin="0 0 0 0" x:Name="WinFrame" Visibility="Hidden"></Frame>
+        <TextBlock Visibility="Hidden" x:Name="LoadText" Text="Загрузка картинок в ОЗУ..." Margin="150,220,150,80" FontFamily="Arial Black" Foreground="White" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
     </Grid>
 </ui:UiWindow>
