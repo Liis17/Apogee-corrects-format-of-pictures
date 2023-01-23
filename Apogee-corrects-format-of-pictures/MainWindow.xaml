@@ -1,0 +1,34 @@
+﻿<ui:UiWindow x:Class="Apogee_corrects_format_of_pictures.MainWindow"
+        ExtendsContentIntoTitleBar="True"
+             x:Name="MainWindowName"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Apogee_corrects_format_of_pictures"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="CanMinimize"
+        WindowCornerPreference="Round"
+        WindowBackdropType="Mica"
+        
+        WindowStyle="SingleBorderWindow"
+        mc:Ignorable="d"
+             
+        Title="MainWindow" Height="450" Width="800" Background="#FF1F1F1F">
+    
+    <Grid>
+        <ui:TitleBar
+            x:Name="maintitlebar"
+            Title=""
+            Grid.Row="0" 
+            UseSnapLayout="True"
+            Height="31" 
+            Foreground="White" 
+            ButtonsForeground="White" Panel.ZIndex="80"/>
+
+        <ui:Button x:Name="Button1" Content="Выбрать папку" Height="29" Width="190" HorizontalAlignment="Center" FontFamily="Arial Black" Click="Button_Click"/>
+        <Frame Margin="0 0 0 0" x:Name="WinFrame" Visibility="Hidden"></Frame>
+    </Grid>
+</ui:UiWindow>
