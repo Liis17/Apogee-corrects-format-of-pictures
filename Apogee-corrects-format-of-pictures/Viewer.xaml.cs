@@ -22,10 +22,13 @@ namespace Apogee_corrects_format_of_pictures
     public partial class Viewer : Page
     {
         public int indexPic = 0;
+        public int countPics = 0;
         DispatcherTimer timemachine = new DispatcherTimer();
 
         public Viewer()
         {
+            countPics = ImageList.RamImages.Count - 1;
+
             InitializeComponent();
             LoadPic();
             StartSaveTimer();
@@ -33,33 +36,43 @@ namespace Apogee_corrects_format_of_pictures
 
         public void LoadPic()
         {
-            if (indexPic == ImageList.ApogeeImages.Count - 1)
+            if (indexPic == countPics)
             {
+                timemachine.Stop();
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    MainWindow.mainWindowName.WindowState = WindowState.Normal;
+                });
                 MessageBox.Show("КАРТИНКИ КОНЧИЛИСЬ ЕБАТЬ!!!", "КАРТИНКИ КОНЧИЛИСЬ ЕБАТЬ!!!");
                 return;
             }
 
-            var pic = ImageList.ApogeeImages[indexPic];
+            if(indexPic != 0)
+            {
+                ImageList.RamImages[indexPic - 1] = null;
 
-            BitmapImage bi3 = new BitmapImage();
-            bi3.BeginInit();
-            bi3.UriSource = new Uri(pic, UriKind.RelativeOrAbsolute);
-            bi3.EndInit();
-            Img.Source = bi3;
-            Blur.Source = bi3;
+                GC.Collect();
+            }
+
+            var pic = ImageList.RamImages[indexPic];
+
+            pic.Freeze();
+
+            Img.Source = pic;
+            Blur.Source = pic;
 
             indexPic++;
         }
         public void StartSaveTimer()
         {
-            timemachine.Interval = TimeSpan.FromMilliseconds(10);
+            timemachine.Interval = TimeSpan.FromMilliseconds(1);
             timemachine.Tick += TimerFinish;
             timemachine.Start();
         }
 
         private void TimerFinish(object? sender, EventArgs e)
         {
-            Screenshoter.CaptureMyScreen();
+            //Screenshoter.CaptureMyScreen();
             LoadPic();
         }
 

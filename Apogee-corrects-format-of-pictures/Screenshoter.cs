@@ -27,16 +27,15 @@ namespace Apogee_corrects_format_of_pictures
                 double screenWidth = 2559;
                 double screenHeight = 1439;
 
-                using (Bitmap bmp = new Bitmap((int)screenWidth,
-                    (int)screenHeight))
+                using (Bitmap bmp = new Bitmap((int)screenWidth, (int)screenHeight))
                 {
                     using (Graphics g = Graphics.FromImage(bmp))
                     {
                         String filename = $"image{DateTime.Now.ToString("HH.mm.ss.fff")}.png";
                         g.CopyFromScreen((int)screenLeft, (int)screenTop, 0, 0, bmp.Size);
 
-                        //var path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\apogeescreenshots";
-                        var path = "A:\\apogeescreenshots";
+                        var path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\apogeescreenshots";
+                        //var path = "A:\\apogeescreenshots";
 
                         var fileName = Path.Combine(path, filename);
                         bmp.Save(fileName);
