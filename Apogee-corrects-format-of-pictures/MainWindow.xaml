@@ -15,8 +15,8 @@
         WindowStyle="SingleBorderWindow"
         mc:Ignorable="d"
              
-        Title="MainWindow" Height="450" Width="800" Background="#FF1F1F1F">
-    
+        Title="MainWindow" Height="450" Width="800" MinHeight="450" MinWidth="800" Background="#FF1F1F1F">
+
     <Grid>
         <ui:TitleBar
             x:Name="maintitlebar"
@@ -29,8 +29,40 @@
             ButtonsForeground="White" Panel.ZIndex="80"/>
         <Grid MouseEnter="MouseEnter" Panel.ZIndex="79" Height="31" VerticalAlignment="Top" Background="#00000000"/>
 
-        <ui:Button x:Name="Button1" Content="Выбрать папку" Height="29" Width="190" HorizontalAlignment="Center" FontFamily="Arial Black" Click="Button_Click"/>
-        <Frame Margin="0 0 0 0" x:Name="WinFrame" Visibility="Hidden"></Frame>
+        <ui:Button x:Name="Button1" Content="Выбрать папку" Height="29" Width="190" FontFamily="Arial Black" Click="Button_Click" Margin="0,346,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Frame Margin="0 0 0 0" x:Name="WinFrame" Visibility="Hidden" Panel.ZIndex="-2"></Frame>
         <TextBlock Visibility="Hidden" x:Name="LoadText" Text="Загрузка картинок в ОЗУ..." Margin="150,220,150,80" FontFamily="Arial Black" Foreground="White" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
+        <Grid x:Name="OtherUI" Panel.ZIndex="-10" Height="434" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
+
+            <TextBox Text="0" FontSize="12" Margin="225,76,518,0" VerticalAlignment="Top" FontFamily="Arial Black" Height="34" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged">
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <Path Data="M18 48 L8 48 Q6 48 6 46 L6 18 Q6 16 8 16 L56 16 Q58 16 58 18 L58 46 Q58 48 56 48 L34 48 L34 54 L40 54 L40 56 L24 56 L24 54 L30 54 L30 48 Z" Fill="White" Margin="266,63,266,0" Stretch="Uniform" Height="200" VerticalAlignment="Top"></Path>
+            <Path Data="M18 48 L8 48 Q6 48 6 46 L6 18 Q6 16 8 16 L56 16 Q58 16 58 18 L58 46 Q58 48 56 48 L34 48 L30 48 Z" Fill="#FFCECECE" Margin="274,67,274,0" Stretch="Fill" Height="150" VerticalAlignment="Top"/>
+            <TextBlock Text="Координаты углов монитора" Height="29" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="WrapWithOverflow" FontSize="19" FontFamily="Calibri" Foreground="White" Margin="10,3,-10,0"/>
+            <TextBlock Text="Скорость переключения картинок в милисекундах" Height="49" VerticalAlignment="Top" TextAlignment="Right" TextWrapping="WrapWithOverflow" FontSize="14" FontFamily="Calibri" Foreground="White" Margin="103,292,307,0" Cursor=""/>
+            <TextBox Height="34" Text="0" FontSize="12" Margin="274,29,470,0" VerticalAlignment="Top" FontFamily="Arial Black" TextChanged="TextBox_TextChanged_1"/>
+            <TextBox Height="34" Text="1439" FontSize="12" Margin="522,176,220,0" FontFamily="Arial Black" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged_3">
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <TextBox Height="34" Text="2559" FontSize="12" Margin="469,226,274,0" FontFamily="Arial Black" VerticalAlignment="Top" TextChanged="TextBox_TextChanged_2"/>
+            <TextBox Height="34" Text="500" FontSize="12" Margin="498,288,215,0" VerticalAlignment="Top" FontFamily="Arial Black" TextChanged="TextBox_TextChanged_4"/>
+            <TextBlock Text="Конечные изображения будут лежать ''Рабочий стол/apogeescreenshots''" Height="30" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="WrapWithOverflow" FontSize="19" FontFamily="Calibri" Foreground="White" Margin="0,404,0,0" Cursor=""/>
+
+        </Grid>
     </Grid>
 </ui:UiWindow>

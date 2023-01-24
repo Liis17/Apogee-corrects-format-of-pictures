@@ -12,6 +12,5 @@ namespace Apogee_corrects_format_of_pictures
         public static List<string> ApogeeImages = new List<string>();
 
         public static List<BitmapImage> RamImages = new List<BitmapImage>();
-
     }
 }

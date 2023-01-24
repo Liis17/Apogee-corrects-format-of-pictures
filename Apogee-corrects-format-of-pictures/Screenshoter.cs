@@ -12,6 +12,10 @@ namespace Apogee_corrects_format_of_pictures
 {
     public class Screenshoter
     {
+        public static double screenLeft = 0;
+        public static double screenTop = 0;
+        public static double screenWidth = 2559;
+        public static double screenHeight = 1439;
         public static void CaptureMyScreen()
         {
             try
@@ -22,10 +26,6 @@ namespace Apogee_corrects_format_of_pictures
                 double screenWidth = SystemParameters.VirtualScreenWidth;
                 double screenHeight = SystemParameters.VirtualScreenHeight;
                 */
-                double screenLeft = 0;
-                double screenTop = 0;
-                double screenWidth = 2559;
-                double screenHeight = 1439;
 
                 using (Bitmap bmp = new Bitmap((int)screenWidth, (int)screenHeight))
                 {
@@ -35,6 +35,7 @@ namespace Apogee_corrects_format_of_pictures
                         g.CopyFromScreen((int)screenLeft, (int)screenTop, 0, 0, bmp.Size);
 
                         var path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\apogeescreenshots";
+                        Directory.CreateDirectory(path);
                         //var path = "A:\\apogeescreenshots";
 
                         var fileName = Path.Combine(path, filename);

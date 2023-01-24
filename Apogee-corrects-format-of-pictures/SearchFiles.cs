@@ -24,6 +24,7 @@ namespace Apogee_corrects_format_of_pictures
             System.Windows.Application.Current.Dispatcher.Invoke(() =>
             {
                 MainWindow.button1.Visibility = Visibility.Hidden;
+                MainWindow.otherUI.Visibility = Visibility.Hidden;
                 MainWindow.loadText.Visibility = Visibility.Visible;
             });
             fbd.ShowDialog();
@@ -37,6 +38,7 @@ namespace Apogee_corrects_format_of_pictures
                 System.Windows.Application.Current.Dispatcher.Invoke(() =>
                 {
                     MainWindow.button1.Visibility = Visibility.Visible;
+                    MainWindow.otherUI.Visibility = Visibility.Visible;
                     MainWindow.loadText.Visibility = Visibility.Hidden;
                 });
                 return; 
@@ -47,26 +49,20 @@ namespace Apogee_corrects_format_of_pictures
                 FileInfo[] files = directory.GetFiles();
                 foreach (FileInfo file in files)
                 {
-                    if (file.FullName.Contains(".mp4") || file.FullName.Contains(".gif") || file.FullName.Contains(".webm")) continue;
-                    ImageList.ApogeeImages.Add(file.FullName);
+                    if (file.FullName.Contains(".png") || file.FullName.Contains(".jpg") || file.FullName.Contains(".jpeg"))
+                    {
+                        ImageList.ApogeeImages.Add(file.FullName);
 
-                    BitmapImage bi3 = new BitmapImage();
-                    bi3.BeginInit();
-                    bi3.UriSource = new Uri(file.FullName, UriKind.RelativeOrAbsolute);
-                    bi3.EndInit();
+                        BitmapImage bi3 = new BitmapImage();
+                        bi3.BeginInit();
+                        bi3.UriSource = new Uri(file.FullName, UriKind.RelativeOrAbsolute);
+                        bi3.EndInit();
 
-                    ImageList.RamImages.Add(bi3);
+                        ImageList.RamImages.Add(bi3);
+                    }
                 }
                 ViewerWork.ClearUI();
-
             }
-            else
-            {
-                System.Windows.MessageBox.Show("Папки не существует");
-            }
-
-
-         
         }
     }
 }

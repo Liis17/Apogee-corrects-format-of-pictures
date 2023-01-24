@@ -24,10 +24,11 @@ namespace Apogee_corrects_format_of_pictures
         public int indexPic = 0;
         public int countPics = 0;
         DispatcherTimer timemachine = new DispatcherTimer();
+        public static int speed = 500;
 
         public Viewer()
         {
-            countPics = ImageList.RamImages.Count - 1;
+            countPics = ImageList.RamImages.Count/* - 1*/;
 
             InitializeComponent();
             LoadPic();
@@ -43,7 +44,7 @@ namespace Apogee_corrects_format_of_pictures
                 {
                     MainWindow.mainWindowName.WindowState = WindowState.Normal;
                 });
-                MessageBox.Show("КАРТИНКИ КОНЧИЛИСЬ ЕБАТЬ!!!", "КАРТИНКИ КОНЧИЛИСЬ ЕБАТЬ!!!");
+                MessageBox.Show("КАРТИНКИ КОНЧИЛИСЬ!!!", "КАРТИНКИ КОНЧИЛИСЬ!!!");
                 return;
             }
 
@@ -65,7 +66,7 @@ namespace Apogee_corrects_format_of_pictures
         }
         public void StartSaveTimer()
         {
-            timemachine.Interval = TimeSpan.FromMilliseconds(500);
+            timemachine.Interval = TimeSpan.FromMilliseconds(speed);
             timemachine.Tick += TimerFinish;
             timemachine.Start();
         }
