@@ -7,10 +7,49 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
+    <StartupObject>Apogee_corrects_format_of_pictures.App</StartupObject>
+    <ApplicationIcon>3400929.ico</ApplicationIcon>
+    <Company>Li_is</Company>
+    <Authors>Li_is</Authors>
+    <Version>beta 1</Version>
+    <Title>ACFP</Title>
+    <PackageId>ACFP</PackageId>
+    <Product>ACFP β 1</Product>
+    <PackageProjectUrl>https://github.com/Liis17/Apogee-corrects-format-of-pictures</PackageProjectUrl>
+    <PackageIcon>3400929.jpg</PackageIcon>
+    <PackageTags>apogee</PackageTags>
+    <AssemblyVersion>0.0.1</AssemblyVersion>
+    <FileVersion>1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="3400929.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="D:\Win10\desktop\3400929.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="WPF-UI" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>
