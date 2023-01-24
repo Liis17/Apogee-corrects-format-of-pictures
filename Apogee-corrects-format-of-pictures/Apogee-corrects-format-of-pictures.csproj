@@ -11,10 +11,10 @@
     <ApplicationIcon>3400929.ico</ApplicationIcon>
     <Company>Li_is</Company>
     <Authors>Li_is</Authors>
-    <Version>beta 1</Version>
+    <Version></Version>
     <Title>ACFP</Title>
-    <PackageId>ACFP</PackageId>
-    <Product>ACFP β 1</Product>
+    <PackageId></PackageId>
+    <Product></Product>
     <PackageProjectUrl>https://github.com/Liis17/Apogee-corrects-format-of-pictures</PackageProjectUrl>
     <PackageIcon>3400929.jpg</PackageIcon>
     <PackageTags>apogee</PackageTags>
